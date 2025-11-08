@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharanya Tripathi - Data Science Portfolio</title>
+    <!-- Load Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Custom Styles and Font Setup */
+        :root {
+            --primary-color: #4f46e5; /* Indigo-600 */
+            --secondary-color: #1e40af; /* Blue-800 */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Slate-50 */
+            color: #1e293b; /* Slate-800 */
+            scroll-behavior: smooth;
+        }
+        /* Custom class for the layered project card effect */
+        .project-card-layered {
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            cursor: pointer;
+        }
+        .project-card-layered:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            z-index: 10;
+        }
+        /* Style for the unique section headings like in the video */
+        .elegant-heading {
+            font-size: 3rem; /* Adjust as needed */
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 2rem;
+            margin-top: 1rem;
+            line-height: 1.1;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+    <!-- Icons from Lucide (using inline SVG is better than full libraries) -->
+</head>
+<body class="antialiased">
+
+    <!-- 1. NAVIGATION (Fixed/Sticky Header) -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-md transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#hero" class="text-xl font-extrabold text-indigo-600 hover:text-indigo-800 transition duration-150">SHARANYA</a>
+                <div class="space-x-8 hidden sm:flex">
+                    <a href="#projects" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-150">Projects</a>
+                    <a href="#experience" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-150">Experience</a>
+                    <a href="#certificates" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-150">Certifications</a>
+                    <a href="#skills" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-150">Skills</a>
+                    <a href="#contact" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-150">Contact</a>
+                </div>
+                <!-- Mobile Menu Button (Hamburger) -->
+                <button id="menu-button" class="sm:hidden text-gray-600 hover:text-indigo-600 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden sm:hidden bg-white shadow-lg pb-2">
+            <a href="#projects" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition duration-150">Projects</a>
+            <a href="#experience" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition duration-150">Experience</a>
+            <a href="#certificates" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition duration-150">Certifications</a>
+            <a href="#skills" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition duration-150">Skills</a>
+            <a href="#contact" class="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition duration-150">Contact</a>
+        </div>
+    </nav>
+
+    <main class="pt-16">
+        
+        <!-- 2. HERO SECTION -->
+        <section id="hero" class="min-h-screen flex items-center justify-center text-center p-8 bg-slate-50 relative">
+            <div class="max-w-4xl mx-auto">
+                <!-- Placeholder for the profile image -->
+                <div class="mx-auto w-32 h-32 md:w-40 md:h-40 bg-indigo-100 rounded-full mb-8 shadow-xl overflow-hidden">
+                    <img src="https://placehold.co/160x160/4f46e5/ffffff?text=S.T" alt="Sharanya Tripathi Profile" class="w-full h-full object-cover">
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-4 text-gray-900 leading-tight">
+                    SHARANYA <span class="text-indigo-600">TRIPATHI</span>
+                </h1>
+                
+                <p class="text-xl sm:text-2xl text-gray-600 max-w-2xl mx-auto mb-10">
+                    B.Tech student skilled in end-to-end data analysis, visualisation, and business intelligence. Applied Python and SQL skills during internships to deliver team projects, earning recognition for performance. Combines technical proficiency with strong analytical thinking and mentorship experience gained through volunteer leadership roles.
+                </p>
+
+                <div class="flex justify-center space-x-4 mb-16">
+                    <a href="https://www.linkedin.com/in/sharanya-tripathi-a569512a3/" target="_blank" class="flex items-center space-x-2 text-indigo-600 hover:text-indigo-800 transition duration-150 border border-indigo-200 hover:border-indigo-400 px-4 py-2 rounded-lg text-sm font-semibold shadow-sm">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM4 9h4v12H4zM6 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5z"/></svg>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/shat-tr" target="_blank" class="flex items-center space-x-2 text-indigo-600 hover:text-indigo-800 transition duration-150 border border-indigo-200 hover:border-indigo-400 px-4 py-2 rounded-lg text-sm font-semibold shadow-sm">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.43 9.8 8.21 11.38.6.11.82-.26.82-.57v-2.03c-3.33.72-4.04-1.61-4.04-1.61-.54-1.37-1.32-1.74-1.32-1.74-1.08-.74.08-.73.08-.73 1.2.08 1.83 1.23 1.83 1.23 1.07 1.84 2.81 1.31 3.49 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.49-1.34-5.49-5.94 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.4 11.4 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.76.84 1.23 1.9 1.23 3.22 0 4.61-2.82 5.64-5.49 5.94.43.37.82 1.12.82 2.26v3.35c0 .31.22.68.82.57C20.57 21.8 24 17.31 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                        <span>GitHub</span>
+                    </a>
+                    <!--**********************ADD RESUME LINK HERE***************-->
+                    <a href="https://drive.google.com/file/d/1fn7zijlmtfy3P0o-hXFfQ1gunH7P4PZU/view?usp=sharing" target="_blank" class="flex items-center space-x-2 text-indigo-600 hover:text-indigo-800 transition duration-150 border border-indigo-200 hover:border-indigo-400 px-4 py-2 rounded-lg text-sm font-semibold shadow-sm">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M9 2.221V7H4.221a2 2 0 0 1 .365-.5L8.5 2.586A2 2 0 0 1 9 2.22ZM11 2v5a2 2 0 0 1-2 2H4v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2h-7Z" clip-rule="evenodd"/></svg>
+
+
+                        <span>Resume</span>
+                    </a>
+                </div>
+            </div>
+            
+        </section>
+
+        <!-- 3. PROJECTS SECTION -->
+        <section id="projects" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="elegant-heading text-center">Projects</h2>
+                
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    
+                    <!-- Project 1: Packing Suggestions AI -->
+                    <div id="project-1" class="project-card-layered bg-white rounded-xl shadow-2xl p-6 md:p-10 border border-indigo-100 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-3xl font-bold text-gray-800 mb-4">Packing Suggestions AI</h3>
+                            <p class="text-gray-600 mb-6">
+                                A multilingual AI solution providing packing suggestions based on weather and travel needs, with text-to-speech output for enhanced usability.
+                            </p>
+                            <ul class="list-disc list-inside text-sm text-gray-500 space-y-1 ml-4">
+                                <li>Translates suggestions & weather into desired language.</li>
+                                <li>Provides purchase links for suggested items.</li>
+                                <li>Converts results from text to speech.</li>
+                            </ul>
+                        </div>
+                        <!-- *****GITHUB PROJECT REPO LINK*****-->
+                        <a href="https://github.com/shat-tr/Packing_Suggestions_AI" target="_blank" class="mt-6 inline-flex items-center font-semibold text-indigo-600 hover:text-indigo-800 transition duration-150 group">
+                            Github Link
+                            <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                        <a href="https://shat-tr.github.io/Packing_Suggestions_AI/" target="_blank" class="mt-6 inline-flex items-center font-semibold text-indigo-600 hover:text-indigo-800 transition duration-150 group">
+                            View Live
+                            <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+
+                    <!-- Project 2: Language Translator -->
+                    <div id="project-2" class="project-card-layered bg-white rounded-xl shadow-2xl p-6 md:p-10 border border-indigo-100 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-3xl font-bold text-gray-800 mb-4">MISHA Language Translator</h3>
+                            <p class="text-gray-600 mb-6">
+                                A comprehensive translation tool featuring manual text translation, speech recognition, and image text detection (OCR).
+                            </p>
+                            <ul class="list-disc list-inside text-sm text-gray-500 space-y-1 ml-4">
+                                <li>Translates text input from various languages.</li>
+                                <li>Includes real-time speech recognition.</li>
+                                <li>Detects and translates text from pictures.</li>
+                            </ul>
+                        </div>
+                        <!-- *****GITHUB PROJECT REPO LINK*****-->
+                        <a href="https://github.com/shat-tr/Language_Translator_pt2.0" target="_blank" class="mt-6 inline-flex items-center font-semibold text-indigo-600 hover:text-indigo-800 transition duration-150 group">
+                            Github Link
+                            <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                        <a href="https://shat-tr.github.io/Language_Translator_pt2.0/" target="_blank" class="mt-6 inline-flex items-center font-semibold text-indigo-600 hover:text-indigo-800 transition duration-150 group">
+                            View Live
+                            <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+
+                    <!-- Project 3: Flight Satisfaction Prediction -->
+                    <div id="project-3" class="project-card-layered bg-white rounded-xl shadow-2xl p-6 md:p-10 border border-indigo-100 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-3xl font-bold text-gray-800 mb-4">Flight Satisfaction Prediction</h3>
+                            <p class="text-gray-600 mb-6">
+                                An ML project to analyze and predict airline passenger satisfaction, classifying travelers as satisfied or dissatisfied based on data.
+                            </p>
+                            <ul class="list-disc list-inside text-sm text-gray-500 space-y-1 ml-4">
+                                <li>Uses various machine learning techniques.</li>
+                                <li>Predictive model for classification.</li>
+                                <li>Aims to improve airline services.</li>
+                            </ul>
+                        </div>
+                        <!-- *****GITHUB PROJECT REPO LINK*****-->
+                        <a href="https://github.com/shat-tr/Flight_Satisfaction_Prediction" target="_blank" class="mt-6 inline-flex items-center font-semibold text-indigo-600 hover:text-indigo-800 transition duration-150 group">
+                        Github Link
+                        <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+
+                    <!-- Project 4: Stroke Prediction -->
+                    <div id="project-4" class="project-card-layered bg-white rounded-xl shadow-2xl p-6 md:p-10 border border-indigo-100 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-3xl font-bold text-gray-800 mb-4">Stroke Prediction</h3>
+                            <p class="text-gray-600 mb-6">
+                                A machine learning-based system designed to predict the likelihood of a stroke using external factors like age and smoking status.
+                            </p>
+                            <ul class="list-disc list-inside text-sm text-gray-500 space-y-1 ml-4">
+                                <li>Uses factors like age, smoking status, etc.</li>
+                                <li>Assists in early stroke assessment.</li>
+                                <li>Aids in preventive healthcare strategies.</li>
+                            </ul>
+                        </div>
+                        <!-- *****GITHUB PROJECT REPO LINK*****-->
+                        <a href="https://github.com/shat-tr/STROKE_PREDICTION" target="_blank" class="mt-6 inline-flex items-center font-semibold text-indigo-600 hover:text-indigo-800 transition duration-150 group">
+                        Github Link
+                        <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section id="experience" class="py-24 bg-white"></section>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Professional Experience -->
+                    <div>
+                        <h2 class="elegant-heading text-center mb-16">Internships & Experience</h2>
+                        
+                        <div class="space-y-6">
+                            <!-- Data Science Intern -->
+                            <div class="bg-slate-50 p-6 rounded-xl shadow-md border-l-4 border-indigo-500">
+                                <p class="text-sm font-medium text-indigo-600">April 2025 - May 2025</p>
+                                <h4 class="text-xl font-semibold text-gray-900 mt-1">Data Science & Analytics Intern</h4>
+                                <p class="text-gray-700">Imarticus Learning</p>
+                                <p class="text-sm text-gray-500 mt-2">
+                                    <ul class="list-disc list-inside text-sm text-gray-500 space-y-1 ml-4">
+                                        <li>Gained hands-on experience with tools such as SQL, Python, and Power BI.</li>
+                                        <li>Worked with real-life datasets to gain useful business insights and shared our results with peers and mentors, enhancing not only technical skills but also boosting communication skills and confidence.</li>
+                                    </ul>
+                                </p>
+                                <a href="https://drive.google.com/file/d/1n50IxYq13b5ANdL-K81T3iEMTg0jl9_V/view?usp=sharing" target="_blank" class="mt-6 inline-flex items-center font-semibold text-indigo-600 hover:text-indigo-800 transition duration-150 group">
+                                Certificate
+                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                                </a>
+                            </div>
+
+                            <!-- Research Intern -->
+                            <div class="bg-slate-50 p-6 rounded-xl shadow-md border-l-4 border-indigo-500">
+                                <p class="text-sm font-medium text-indigo-600">Apr 2025 - May 2025</p>
+                                <h4 class="text-xl font-semibold text-gray-900 mt-1">Data Science Intern</h4>
+                                <p class="text-gray-700">Suvidha Foundation</p>
+                                <p class="text-sm text-gray-500 mt-2">
+                                    Worked on the project: "MultiLingualBERTScore: A Robust Evaluation Metric for Multilingual Text Generation", where my key contributions were:
+                                </p>
+                                <p class="text-sm text-gray-500 mt-2">
+                                    <ul class="list-disc list-inside text-sm text-gray-500 space-y-1 ml-4">
+                                        <li>Developing and testing a multilingual evaluation metric based on BERT embeddings for scoring generated text in more than 20 languages.</li>
+                                        <li>Compare and contrast standard evaluation metrics like BLEU and ROUGE with semantic-based MultiLingualBERTScore.</li>
+                                        <li>Created an easy-to-use interface for inputting multilingual text and obtaining real-time comparative scores.</li>
+                                    </ul>
+                                </p>
+                                <a href="https://drive.google.com/file/d/1u2m0sFOMBsXR2mjiHObJa0SZ_gVFFk5i/view?usp=sharing" target="_blank" class="mt-6 inline-flex items-center font-semibold text-indigo-600 hover:text-indigo-800 transition duration-150 group">
+                                Certificate
+                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                                </a>
+                            </div>
+
+                            <!-- Full-stack Web Development Internship -->
+                            <div class="bg-slate-50 p-6 rounded-xl shadow-md border-l-4 border-indigo-500">
+                                <p class="text-sm font-medium text-indigo-600">01 August 2025 - 31 August 2025</p>
+                                <h4 class="text-xl font-semibold text-gray-900 mt-1">Full-stack Web Development Intern</h4>
+                                <p class="text-gray-700">Prodigy InfoTech</p>
+                                <p class="text-sm text-gray-500 mt-2">
+                                    Worked on various web-development projects like:
+                                </p>
+                                <p class="text-sm text-gray-500 mt-2">
+                                    <ul class="list-disc list-inside text-sm text-gray-500 space-y-1 ml-4">
+                                        <li>Secure User Authentication : safe logins with password hashing</li>
+                                        <li>CRUD with Role-Based Access : an admin portal with employee & admin roles</li>
+                                        <li>E-commerce Website : a simple and functional shopping experience</li>
+                                        <li>Real-time Chat App : live messaging + file sharing with WebSockets</li>
+                                    </ul>
+                                </p>
+                                <a href="https://drive.google.com/file/d/1iwZuQvyYSmaxWuXbAzDYbIExub6qpopG/view?usp=sharing" target="_blank" class="mt-6 inline-flex items-center font-semibold text-indigo-600 hover:text-indigo-800 transition duration-150 group">
+                                Certificate
+                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition duration-150" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+
+
+        <section id="certificates" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Certifications and Volunteering -->
+                    <div>
+                        <h2 class="elegant-heading text-center mb-16">Certificates & Activities</h2>
+
+                        <div class="space-y-6">
+                            <!-- Certifications -->
+                            <div class="bg-slate-50 p-6 rounded-xl shadow-md border-l-4 border-indigo-500">
+                                <h4 class="text-xl font-semibold text-gray-900 mb-2">Deloitte Data Analytics Job Simulation</h4>
+                                <p class="text-sm text-gray-600">
+                                    Completed tasks including creating a data dashboard using Tableau and using Excel to classify data and draw business conclusions.
+                                </p>
+                            </div>
+
+                            <div class="bg-slate-50 p-6 rounded-xl shadow-md border-l-4 border-indigo-500">
+                                <h4 class="text-xl font-semibold text-gray-900 mb-2">IBM SkillsBuild with CSRBOX</h4>
+                                <p class="text-sm text-gray-600">
+                                    Learned and implemented frontend web development knowledge under the IBM SkillsBuild Project Based Learning Program - Click, Code, Create: Beginner's Guide to Front End Web Development with CSRBOX
+                                </p>
+                            </div>
+
+                            <!-- Volunteering -->
+                            <div class="bg-slate-50 p-6 rounded-xl shadow-md border-l-4 border-indigo-500">
+                                <h4 class="text-xl font-semibold text-gray-900 mb-2">National Service Scheme (NSS)</h4>
+                                <p class="text-sm text-gray-600">
+                                    Actively participated in social activities like the Blood Donation Campaign, Silent Peace Rally, and Student mentoring for THE SCHOOLS CHALLENGE program.
+                                </p>
+                            </div>
+                            <!-- Activities -->
+                            <div class="bg-slate-50 p-6 rounded-xl shadow-md border-l-4 border-indigo-500">
+                                <h4 class="text-xl font-semibold text-gray-900 mb-2">Writers' Club (2 Years)</h4>
+                                <p class="text-sm text-gray-600">
+                                    Contributed as an active member, participating in literary events and serving on the editorial team for the annual magazine AIKYAM.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+
+        <!-- 4. SKILLS SECTION -->
+        <section id="skills" class="py-24 bg-slate-50">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="elegant-heading text-center">Core Skills</h2>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                    <!-- Data is extracted from the resume -->
+                    <div class="p-4 bg-white rounded-xl shadow-lg border-b-4 border-indigo-600 text-center transition hover:shadow-xl">
+                        <span class="text-4xl block mb-2" role="img" aria-label="Python">🐍</span>
+                        <p class="font-semibold text-gray-800">Python</p>
+                    </div>
+                    <div class="p-4 bg-white rounded-xl shadow-lg border-b-4 border-indigo-600 text-center transition hover:shadow-xl">
+                        <span class="text-4xl block mb-2" role="img" aria-label="SQL">⚙️</span>
+                        <p class="font-semibold text-gray-800">SQL</p>
+                    </div>
+                    <div class="p-4 bg-white rounded-xl shadow-lg border-b-4 border-indigo-600 text-center transition hover:shadow-xl">
+                        <span class="text-4xl block mb-2" role="img" aria-label="Tableau">📊</span>
+                        <p class="font-semibold text-gray-800">Tableau</p>
+                    </div>
+                    <div class="p-4 bg-white rounded-xl shadow-lg border-b-4 border-indigo-600 text-center transition hover:shadow-xl">
+                        <span class="text-4xl block mb-2" role="img" aria-label="Power BI">📈</span>
+                        <p class="font-semibold text-gray-800">Power BI</p>
+                    </div>
+                    <div class="p-4 bg-white rounded-xl shadow-lg border-b-4 border-indigo-600 text-center transition hover:shadow-xl">
+                        <span class="text-4xl block mb-2" role="img" aria-label="C++">💻</span>
+                        <p class="font-semibold text-gray-800">C++</p>
+                    </div>
+                    <div class="p-4 bg-white rounded-xl shadow-lg border-b-4 border-indigo-600 text-center transition hover:shadow-xl">
+                        <span class="text-4xl block mb-2" role="img" aria-label="HTML/CSS">🌐</span>
+                        <p class="font-semibold text-gray-800">HTML/CSS</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        
+    </main>
+
+    <!-- 6. FOOTER -->
+    <footer id="contact" class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm text-gray-400">&copy;Sharanya Tripathi Portfolio.</p>
+            <div class="mt-4 space-x-4">
+                <a>📩 sharanyatripathi20@gmail.com</a><br><br>
+                <a>📱 +91 9769117356</a><br><br>
+                <a>📍 Mumbai, India</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FOR INTERACTIVITY -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Mobile menu toggle
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
