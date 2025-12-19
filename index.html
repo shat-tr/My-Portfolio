@@ -52,6 +52,38 @@
                 transform: translateY(-5px);
             }
         }
+
+        #cute-face {
+            width: 100%;
+            height: 100%;
+            background: #e0e7ff;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            box-shadow: 0 15px 30px rgba(79,70,229,0.35);
+        }
+
+        .eye {
+            width: 28%;
+            height: 28%;
+            background: white;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pupil {
+            width: 40%;
+            height: 40%;
+            background: #1e293b;
+            border-radius: 50%;
+            position: absolute;
+            top: 30%;
+            left: 30%;
+            transition: transform 0.08s linear;
+    }
+
     </style>
     <!-- Icons from Lucide (using inline SVG is better than full libraries) -->
 </head>
@@ -61,7 +93,7 @@
     <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-md transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <a href="#hero" class="text-xl font-extrabold text-indigo-600 hover:text-indigo-800 transition duration-150">SHARANYA</a>
+                <a href="#hero" class="text-xl font-extrabold text-indigo-600 hover:text-indigo-800 transition duration-150">SHARANYA TRIPATHI</a>
                 <div class="space-x-8 hidden sm:flex">
                     <a href="#projects" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-150">Projects</a>
                     <a href="#experience" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-150">Experience</a>
@@ -91,9 +123,17 @@
         <section id="hero" class="min-h-screen flex items-center justify-center text-center p-8 bg-slate-50 relative">
             <div class="max-w-4xl mx-auto">
                 <!-- Placeholder for the profile image -->
-                <div class="mx-auto w-32 h-32 md:w-40 md:h-40 bg-indigo-100 rounded-full mb-8 shadow-xl overflow-hidden">
-                    <img src="https://placehold.co/160x160/4f46e5/ffffff?text=S.T" alt="Sharanya Tripathi Profile" class="w-full h-full object-cover">
+                <div class="mx-auto w-32 h-32 md:w-40 md:h-40 mb-8 relative flex items-center justify-center">
+                    <div id="cute-face">
+                        <div class="eye">
+                            <div class="pupil"></div>
+                        </div>
+                        <div class="eye">
+                            <div class="pupil"></div>
+                        </div>
+                    </div>
                 </div>
+
 
                 <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-4 text-gray-900 leading-tight">
                     SHARANYA <span class="text-indigo-600">TRIPATHI</span>
@@ -308,6 +348,13 @@
                         <div class="space-y-6">
                             <!-- Certifications -->
                             <div class="bg-slate-50 p-6 rounded-xl shadow-md border-l-4 border-indigo-500">
+                                <h4 class="text-xl font-semibold text-gray-900 mb-2">IBM SkillsBuild with CSRBOX</h4>
+                                <p class="text-sm text-gray-600">
+                                    Learned and implemented frontend web development knowledge under the IBM SkillsBuild Project Based Learning Program - Click, Code, Create: Beginner's Guide to Front End Web Development with CSRBOX
+                                </p>
+                            </div>
+
+                            <div class="bg-slate-50 p-6 rounded-xl shadow-md border-l-4 border-indigo-500">
                                 <h4 class="text-xl font-semibold text-gray-900 mb-2">Deloitte Data Analytics Job Simulation</h4>
                                 <p class="text-sm text-gray-600">
                                     Completed tasks including creating a data dashboard using Tableau and using Excel to classify data and draw business conclusions.
@@ -315,10 +362,9 @@
                             </div>
 
                             <div class="bg-slate-50 p-6 rounded-xl shadow-md border-l-4 border-indigo-500">
-                                <h4 class="text-xl font-semibold text-gray-900 mb-2">IBM SkillsBuild with CSRBOX</h4>
+                                <h4 class="text-xl font-semibold text-gray-900 mb-2">Competitions and Hackathons</h4>
                                 <p class="text-sm text-gray-600">
-                                    Learned and implemented frontend web development knowledge under the IBM SkillsBuild Project Based Learning Program - Click, Code, Create: Beginner's Guide to Front End Web Development with CSRBOX
-                                </p>
+                                    Participated in many competitions like the '5-day AI Agents Intensive Course with Google', 'GDG on Campus Solution Challenge by Hack2Skill', and multiple Hackathons.</p>
                             </div>
 
                             <!-- Volunteering -->
@@ -420,5 +466,31 @@
             });
         });
     </script>
+    <script>
+    const eyes = document.querySelectorAll(".eye");
+
+    document.addEventListener("mousemove", (e) => {
+        eyes.forEach(eye => {
+            const pupil = eye.querySelector(".pupil");
+            const rect = eye.getBoundingClientRect();
+
+            const eyeCenterX = rect.left + rect.width / 2;
+            const eyeCenterY = rect.top + rect.height / 2;
+
+            const angle = Math.atan2(
+                e.clientY - eyeCenterY,
+                e.clientX - eyeCenterX
+            );
+
+            const maxMove = rect.width * 0.15;
+
+            const x = Math.cos(angle) * maxMove;
+            const y = Math.sin(angle) * maxMove;
+
+            pupil.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    });
+</script>
+
 </body>
 </html>
